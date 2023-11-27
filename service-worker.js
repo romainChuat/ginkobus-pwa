@@ -24,7 +24,7 @@ self.addEventListener("install", (e) => {
 
 
   self.addEventListener("fetch", (e) => {
-    e.respondWith(
+    /*e.respondWith(
       (async () => {
         const r = await caches.match(e.request);
         console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
@@ -37,5 +37,20 @@ self.addEventListener("install", (e) => {
         cache.put(e.request, response.clone());
         return response;
       })(),
-    );
+    );*/
+    if(!e.request.url.startWith("http")){
+        e.respondWith(
+            fetch(e.request)
+            .then(async (r) => {
+                const cache = await caches.open(cacheName);
+                console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
+                cache.put(e.request, r.clone());
+                return r;
+            })
+            .catch(function() {
+                return caches.match(e.request);
+            })
+        );
+    }
+
   });
