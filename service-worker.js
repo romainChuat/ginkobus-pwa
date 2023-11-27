@@ -3,7 +3,7 @@ const cacheName = "ginkobus-pwa-v1";
 const contentToCache = [
     "icons/icon-192.png",
     "icons/icon-512.png",
-    "icons/maskable-icon.png",
+    "icons/maskable_icon.png",
     "manifest.json",
     "app.js",
     "index.html",
