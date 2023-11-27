@@ -30,7 +30,12 @@
     <!-- application scripts -->
     <script src="app.js" defer></script>
 
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("service-worker.js");
+        }
 
+    </script>
 
 </head>
 

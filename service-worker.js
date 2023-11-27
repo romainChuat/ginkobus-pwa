@@ -5,6 +5,7 @@ const contentToCache = [
     "icons/icon-512.png",
     "icons/icon-maskable.png",
     "manifest.json",
+    "app.js",
     "index.html",
     "style.css"
 ]
